@@ -35,7 +35,7 @@ def buildCF(dir = '', uccode = ''){
 
     int result = 0
     def log_file = "${env.WORKSPACE}\\log.txt"
-    returnCode = cmd("vrunner compile --src \"${dir}\\src\\cf\" -c --ibconnection /S${server1c}/${database} --db-user \"Admin\" --db-pwd \"123\" --v8version \"8.3.26.1521\" --uccode \"${uccode}\" ")
+    returnCode = cmd("vrunner compile --src \"${dir}\\src\\cf\" -c --ibconnection /S${server1c}/${database} --db-user \"Admin\" --db-pwd \"123\" --v8version \"8.3.26.1498\" --uccode \"${uccode}\" ")
     
     if(returnCode > 0){
         error 'Исходники не собрались:\n' + loadErrorMessage()
@@ -46,7 +46,7 @@ def buildCF(dir = '', uccode = ''){
 //обновление информационной базы
 def updatedb(uccode = ''){
             
-    returnCode = cmd("vrunner updatedb --v1 --ibconnection /S${server1c}/${database} --db-user \"Admin\" --db-pwd \"123\" --v8version \"8.3.26.1521\" --uccode \"${uccode}\" ")
+    returnCode = cmd("vrunner updatedb --v1 --ibconnection /S${server1c}/${database} --db-user \"Admin\" --db-pwd \"123\" --v8version \"8.3.26.1498\" --uccode \"${uccode}\" ")
 
     if (returnCode != 0) {
         error 'Ошибка при удалении базы:' 
